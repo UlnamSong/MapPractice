@@ -15,7 +15,6 @@ import com.ulnamsong.mappractice.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    ActivityMainBinding mBinding;
     static final LatLng SEOUL = new LatLng(37.56, 126.97);
     private GoogleMap googleMap;
 
@@ -23,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
