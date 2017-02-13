@@ -3,6 +3,7 @@ package com.ulnamsong.mappractice;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,8 +34,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(final GoogleMap map) {
         googleMap = map;
 
-        Marker seoul = googleMap.addMarker(new MarkerOptions().position(SEOUL)
-                .title("대한민국 서울특별시"));
+        final Marker seoul = googleMap.addMarker(new MarkerOptions().position(SEOUL)
+                .title("대한민국 서울특별시")
+                .draggable(true));
+        googleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                Toast.makeText(MainActivity.this, seoul.getPosition().latitude + ", " + seoul.getPosition().longitude, Toast.LENGTH_SHORT).show();
+            }
+        });
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
