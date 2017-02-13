@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap = map;
 
         Marker seoul = googleMap.addMarker(new MarkerOptions().position(SEOUL)
-                .title("Seoul"));
+                .title("대한민국 서울특별시"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
